@@ -4,6 +4,7 @@ import business.logic.Address;
 import business.logic.ServiceContact;
 import business.logic.ServiceIdentification;
 import business.logic.ServiceProvider;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,7 +25,7 @@ public class SettingsRESTService {
 
 
 
-
+    @CrossOrigin
     @RequestMapping("/serviceIdentification")
     public List<ServiceIdentification> getServiceIdentificationDetails(){
 
@@ -39,11 +40,12 @@ public class SettingsRESTService {
         serviceIdentification.setAccessConstraints("NONE");
 
         // Return Json
+
         return Collections.singletonList(serviceIdentification);
     }
 
 
-
+    @CrossOrigin
     @RequestMapping("/serviceProvider")
     public List<ServiceProvider> getServiceProviderDetails(){
 
