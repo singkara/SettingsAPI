@@ -1,9 +1,6 @@
 package com.example.North.SettingsAPI;
 
-import business.logic.Address;
-import business.logic.ServiceContact;
-import business.logic.ServiceIdentification;
-import business.logic.ServiceProvider;
+import business.logic.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -57,6 +54,7 @@ public class SettingsRESTService {
         ServiceContact serviceContact = new ServiceContact();
         serviceContact.setIndividualName("Benjamin Pross");
         serviceContact.setPositionName("Software Engineer");
+        ContactInfo contactInfo = new ContactInfo("+49(0)251/396 371-0", "+49(0)251/396 371-11");
         Address address = new Address();
         address.setDeliveryPoint("Martin-Luther-King-Weg 24");
         address.setCity("Münster");
@@ -64,9 +62,11 @@ public class SettingsRESTService {
         address.setPostalCode("48155");
         address.setCountry("Germany");
         address.setEmail("b.pross @52north.org");
+        address.setHoursOfService("9 to 5");
         serviceContact.setAddress(address);
-
+        serviceProvider.setContactInfo(contactInfo);
         serviceProvider.setServiceContact(serviceContact);
+
         // Return Json
         return Collections.singletonList(serviceProvider);
     }

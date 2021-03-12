@@ -4,14 +4,24 @@ public class ServiceProvider {
     private String providerName;
     private String providerSite;
     private ServiceContact serviceContact;
+    private ContactInfo contactInfo;
 
     public ServiceProvider() {
     }
 
-    public ServiceProvider(String providerName, String providerSite, ServiceContact serviceContact) {
+    public ServiceProvider(String providerName, String providerSite, ServiceContact serviceContact, ContactInfo contactInfo) {
         this.providerName = providerName;
         this.providerSite = providerSite;
         this.serviceContact = serviceContact;
+        this.contactInfo = contactInfo;
+    }
+
+    public void setContactInfo(ContactInfo contactInfo) {
+        this.contactInfo = contactInfo;
+    }
+
+    public ContactInfo getContactInfo() {
+        return contactInfo;
     }
 
     public void setProviderName(String providerName) {
